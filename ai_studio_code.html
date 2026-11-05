@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lycée Bilingue de Bafoussam | Excellence & Bilinguisme</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts : Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              800: '#1e3a8a',
+              900: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Gradient text helper */
+    .gradient-text {
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Animation pulse douce */
+    @keyframes pulse-soft {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+    .animate-pulse-soft {
+      animation: pulse-soft 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- ================= BARRE DE NAVIGATION ================= -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <a href="#accueil" class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-800 to-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 group-hover:rotate-6 transition-transform">
+            <i class="fa-solid fa-graduation-cap text-2xl"></i>
+          </div>
+          <div>
+            <span class="block font-bold text-lg text-blue-900 leading-tight">Lycée Bilingue</span>
+            <span class="block text-xs font-semibold text-blue-600 tracking-wider uppercase">Bafoussam • Ouest Cameroun</span>
+          </div>
+        </a>
+
+        <!-- Menu Desktop -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="#accueil" class="text-blue-900 hover:text-blue-600 transition">Accueil</a>
+          <a href="#apropos" class="text-slate-600 hover:text-blue-600 transition">À Propos</a>
+          <a href="#filieres" class="text-slate-600 hover:text-blue-600 transition">Nos Filières</a>
+          <a href="#clubs" class="text-slate-600 hover:text-blue-600 transition">Vie Scolaire & Clubs</a>
+          <a href="#galerie" class="text-slate-600 hover:text-blue-600 transition">Galerie</a>
+          <a href="#contact" class="px-5 py-2.5 rounded-full bg-blue-700 text-white hover:bg-blue-800 shadow-md shadow-blue-700/20 transition transform hover:-translate-y-0.5">
+            <i class="fa-solid fa-paper-plane mr-2 text-xs"></i>Contact
+          </a>
+        </div>
+
+        <!-- Bouton Menu Mobile -->
+        <div class="md:hidden flex items-center">
+          <button id="menu-btn" class="p-2 rounded-lg text-slate-700 hover:bg-blue-50 focus:outline-none" aria-label="Menu Mobile">
+            <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Déroulant Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-4 shadow-xl">
+      <a href="#accueil" class="block text-slate-800 hover:text-blue-600 font-medium py-1">Accueil</a>
+      <a href="#apropos" class="block text-slate-800 hover:text-blue-600 font-medium py-1">À Propos</a>
+      <a href="#filieres" class="block text-slate-800 hover:text-blue-600 font-medium py-1">Nos Filières</a>
+      <a href="#clubs" class="block text-slate-800 hover:text-blue-600 font-medium py-1">Nos Clubs</a>
+      <a href="#galerie" class="block text-slate-800 hover:text-blue-600 font-medium py-1">Galerie</a>
+      <a href="#contact" class="block text-center w-full py-2.5 rounded-full bg-blue-700 text-white font-medium shadow-md">Contactez-nous</a>
+    </div>
+  </nav>
+
+  <!-- ================= SECTION ACCUEIL (HERO) ================= -->
+  <section id="accueil" class="relative pt-32 pb-24 md:pt-44 md:pb-36 bg-gradient-to-b from-blue-50/60 via-white to-slate-50 overflow-hidden">
+    <!-- Cercles lumineux de fond -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-blue-400/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-blue-800 text-xs font-semibold tracking-wide border border-blue-200">
+            <span class="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
+            Formation bilingue d'élite à l'Ouest Cameroun
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-blue-950 tracking-tight leading-[1.15]">
+            Forger les leaders de demain dans la <span class="gradient-text">rigueur et l'excellence.</span>
+          </h1>
+
+          <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+            Bienvenue au <strong class="font-semibold text-slate-800">Lycée Bilingue de Bafoussam</strong>. Un cadre d'apprentissage harmonieux alliant bilinguisme français-anglais, formation scientifique de pointe et esprit d'innovation technologique.
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#filieres" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-blue-700 text-white font-medium hover:bg-blue-800 transition shadow-lg shadow-blue-700/25 flex items-center justify-center gap-2 group">
+              Découvrir les filières
+              <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition"></i>
+            </a>
+            <a href="#club-informatique" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white border border-blue-200 text-blue-800 font-medium hover:bg-blue-50 transition shadow-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-laptop-code text-blue-600"></i>
+              Le Club Informatique
+            </a>
+          </div>
+
+          <!-- Indicateurs rapides -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200/80 max-w-lg mx-auto lg:mx-0">
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-blue-900">97%</p>
+              <p class="text-xs sm:text-sm text-slate-500 font-medium">Réussite aux examens</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-blue-900">100%</p>
+              <p class="text-xs sm:text-sm text-slate-500 font-medium">Bilinguisme intégral</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-blue-900">+2500</p>
+              <p class="text-xs sm:text-sm text-slate-500 font-medium">Élèves encadrés</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Hero d'élèves africains épanouis -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Cadre d'arrière-plan stylisé -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-700 to-sky-400 rounded-3xl rotate-3 scale-95 opacity-80 blur-sm"></div>
+            
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5]">
+              <img 
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80" 
+                alt="Élèves souriants et studieux du Lycée" 
+                class="w-full h-full object-cover object-center transform hover:scale-105 transition duration-700"
+              >
+              
+              <!-- Badge flottant -->
+              <div class="absolute bottom-5 left-5 right-5 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50 flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                  <i class="fa-solid fa-shield-heart text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-800">Discipline & Réussite</h4>
+                  <p class="text-xs text-slate-500">Sous la tutelle du Ministère des Enseignements Secondaires</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION À PROPOS ================= -->
+  <section id="apropos" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">Notre Histoire & Valeurs</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-blue-950">Un pôle de savoir incontournable à Bafoussam</h3>
+        <p class="mt-4 text-slate-600">
+          Implanté au cœur de la capitale régionale de l'Ouest, le Lycée Bilingue de Bafoussam forme depuis des décennies l'élite intellectuelle, scientifique et culturelle de la république.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Carte 1 -->
+        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:border-blue-200 transition duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-700 text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <h4 class="text-xl font-bold text-blue-950 mb-3">Double Culture & Bilinguisme</h4>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Nous proposons à la fois la section francophone (Brevets, Probatoires, Baccalauréats A, C, D) et la section anglophone (GCE Ordinary & Advanced Levels) avec une parfaite communion fraternelle.
+          </p>
+        </div>
+
+        <!-- Carte 2 -->
+        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:border-blue-200 transition duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-700 text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
+            <i class="fa-solid fa-medal"></i>
+          </div>
+          <h4 class="text-xl font-bold text-blue-950 mb-3">Rigueur & Discipline</h4>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            L'assiduité, la ponctualité, le respect des enseignants et la dignité humaine sont les piliers indéboulonnables sur lesquels repose le succès de nos candidats lors des examens officiels.
+          </p>
+        </div>
+
+        <!-- Carte 3 -->
+        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:border-blue-200 transition duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-700 text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
+            <i class="fa-solid fa-microscope"></i>
+          </div>
+          <h4 class="text-xl font-bold text-blue-950 mb-3">Infrastructures Modernes</h4>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Des laboratoires de sciences physiques et de SVT équipés, une bibliothèque riche en manuels agréés et une salle multimédia dédiée à l'apprentissage pratique du numérique.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION NOS FILIÈRES (A, C, D) ================= -->
+  <section id="filieres" class="py-24 bg-gradient-to-b from-slate-50 to-blue-50/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">Cycle Secondaire & Second Cycle</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-blue-950">Nos Principales Séries d'Excellence</h3>
+        <p class="mt-4 text-slate-600">
+          Un encadrement pédagogique rigoureux assuré par des professeurs chevronnés pour préparer brillamment le Probatoire et le Baccalauréat.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Série A : Littéraire -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 relative flex flex-col justify-between">
+          <div>
+            <div class="inline-flex px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-4">
+              Lettres & Sciences Humaines
+            </div>
+            <div class="text-5xl font-black text-blue-900 mb-2">Série A</div>
+            <h4 class="text-lg font-bold text-slate-800 mb-4">A4 Littéraire, Langues & Philosophie</h4>
+            <p class="text-sm text-slate-600 mb-6">
+              Destinée aux passionnés de littérature, de philosophie, de communication et de langues vivantes (Français, Anglais, Espagnol, Allemand).
+            </p>
+            <ul class="space-y-2.5 text-sm text-slate-600 mb-8">
+              <li class="flex items-center"><i class="fa-solid fa-check text-blue-600 mr-2.5 text-xs"></i>Littérature et Éloquence</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-blue-600 mr-2.5 text-xs"></i>Philosophie critique</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-blue-600 mr-2.5 text-xs"></i>Histoire, Géographie & ECM</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-blue-600 mr-2.5 text-xs"></i>Débouchés : Droit, Diplomatie, Médias</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full text-center py-2.5 rounded-xl border border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white transition font-medium text-sm">En savoir plus</a>
+        </div>
+
+        <!-- Série C : Mathématiques & Physiques (Mise en avant) -->
+        <div class="bg-gradient-to-b from-blue-900 to-blue-950 text-white rounded-3xl p-8 shadow-2xl relative flex flex-col justify-between transform md:-translate-y-3 border-2 border-blue-500">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-blue-400 to-sky-400 text-blue-950 text-xs uppercase tracking-wider font-extrabold px-3 py-1 rounded-full shadow-md">
+            Pôle d'Élite Scientifique
+          </div>
+          <div>
+            <div class="inline-flex px-3 py-1 rounded-full text-xs font-bold bg-blue-800 text-blue-200 mb-4">
+              Sciences Pures
+            </div>
+            <div class="text-5xl font-black text-white mb-2">Série C</div>
+            <h4 class="text-lg font-bold text-blue-100 mb-4">Mathématiques & Sciences Physiques</h4>
+            <p class="text-sm text-slate-300 mb-6">
+              La filière reine de la précision analytique, du raisonnement abstrait et de la préparation aux grands concours d'ingénierie nationaux et internationaux.
+            </p>
+            <ul class="space-y-2.5 text-sm text-slate-200 mb-8">
+              <li class="flex items-center"><i class="fa-solid fa-atom text-sky-400 mr-2.5 text-xs"></i>Mathématiques avancées & Analyse</li>
+              <li class="flex items-center"><i class="fa-solid fa-atom text-sky-400 mr-2.5 text-xs"></i>Physique théorique & mécanique</li>
+              <li class="flex items-center"><i class="fa-solid fa-atom text-sky-400 mr-2.5 text-xs"></i>Chimie moléculaire</li>
+              <li class="flex items-center"><i class="fa-solid fa-atom text-sky-400 mr-2.5 text-xs"></i>Débouchés : Polytechnique, ENS, Architecture</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full text-center py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-blue-950 transition font-bold text-sm shadow-md">Rejoindre la Série C</a>
+        </div>
+
+        <!-- Série D : Sciences Biologiques -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 relative flex flex-col justify-between">
+          <div>
+            <div class="inline-flex px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 mb-4">
+              Sciences Expérimentales
+            </div>
+            <div class="text-5xl font-black text-blue-900 mb-2">Série D</div>
+            <h4 class="text-lg font-bold text-slate-800 mb-4">Sciences de la Vie et de la Terre</h4>
+            <p class="text-sm text-slate-600 mb-6">
+              Conçue pour explorer les mystères du vivant, les sciences biomédicales, l'écologie et l'environnement avec une forte composante pratique.
+            </p>
+            <ul class="space-y-2.5 text-sm text-slate-600 mb-8">
+              <li class="flex items-center"><i class="fa-solid fa-check text-blue-600 mr-2.5 text-xs"></i>Biologie humaine et végétale</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-blue-600 mr-2.5 text-xs"></i>Géologie et dynamique terrestre</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-blue-600 mr-2.5 text-xs"></i>Chimie organique & Physique</li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-blue-600 mr-2.5 text-xs"></i>Débouchés : Médecine, Agronomie, Pharmacie</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full text-center py-2.5 rounded-xl border border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white transition font-medium text-sm">En savoir plus</a>
+        </div>
+      </div>
+
+      <!-- Note pour la section Anglophone -->
+      <div class="mt-12 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl flex-shrink-0">
+            <i class="fa-solid fa-earth-africa"></i>
+          </div>
+          <div>
+            <h5 class="text-base font-bold text-slate-800">Looking for the Anglophone Sub-System?</h5>
+            <p class="text-xs text-slate-500">We offer full Arts & Science options for GCE Ordinary & Advanced Level.</p>
+          </div>
+        </div>
+        <span class="inline-block px-4 py-2 bg-slate-100 text-blue-900 font-semibold text-xs rounded-full uppercase tracking-wider">
+          GCE O-Level / A-Level Ready
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION NOS CLUBS (GROS FOCUS CLUB INFORMATIQUE) ================= -->
+  <section id="clubs" class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">Activités Périscolaires & Talents</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-blue-950">Des clubs actifs pour révéler le plein potentiel</h3>
+        <p class="mt-4 text-slate-600">
+          L'apprentissage ne s'arrête pas à la salle de classe. Nos clubs permettent aux élèves de développer leur créativité, leur esprit d'équipe et leur leadership.
+        </p>
+      </div>
+
+      <!-- GROSSE VEDETTE : LE CLUB INFORMATIQUE -->
+      <div id="club-informatique" class="mb-16 rounded-3xl bg-gradient-to-r from-blue-950 via-slate-900 to-blue-900 text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden border border-blue-500/30">
+        <!-- Effet de grille high-tech -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 text-sky-300 text-xs font-bold tracking-wider uppercase border border-sky-400/30">
+              <i class="fa-solid fa-microchip"></i> Club Phare du Lycée
+            </div>
+            
+            <h3 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+              Club Informatique & <span class="text-sky-400">Tech Lab Bafoussam</span>
+            </h3>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Le rendez-vous des futurs génies du numérique ! Notre club initie les élèves aux technologies d’avenir dès le secondaire. Ici, nous transformons de simples utilisateurs en véritables concepteurs et créateurs de solutions logicielles.
+            </p>
+
+            <!-- Tags des technologies et compétences -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white/5 border border-white/10">
+                <i class="fa-brands fa-python text-yellow-400 text-xl"></i>
+                <span class="text-xs font-semibold text-slate-200">Algorithmique & Python</span>
+              </div>
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white/5 border border-white/10">
+                <i class="fa-solid fa-code text-sky-400 text-xl"></i>
+                <span class="text-xs font-semibold text-slate-200">Création Web & HTML/CSS</span>
+              </div>
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white/5 border border-white/10">
+                <i class="fa-solid fa-robot text-purple-400 text-xl"></i>
+                <span class="text-xs font-semibold text-slate-200">Robotique & Arduino</span>
+              </div>
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white/5 border border-white/10">
+                <i class="fa-solid fa-shield-halved text-emerald-400 text-xl"></i>
+                <span class="text-xs font-semibold text-slate-200">Initiation Cybersécurité</span>
+              </div>
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white/5 border border-white/10">
+                <i class="fa-solid fa-brain text-pink-400 text-xl"></i>
+                <span class="text-xs font-semibold text-slate-200">Découverte de l'IA</span>
+              </div>
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white/5 border border-white/10">
+                <i class="fa-solid fa-trophy text-amber-400 text-xl"></i>
+                <span class="text-xs font-semibold text-slate-200">Concours & Hackathons</span>
+              </div>
+            </div>
+
+            <div class="pt-4 flex flex-wrap gap-4">
+              <a href="#contact" class="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition shadow-lg shadow-sky-500/25 flex items-center gap-2">
+                <i class="fa-solid fa-user-plus"></i> S'inscrire au Club Informatique
+              </a>
+              <div class="flex items-center gap-3 text-slate-400 text-xs">
+                <i class="fa-regular fa-clock text-sky-400 text-base"></i>
+                <span>Séances pratiques chaque mercredi & samedi</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visuel Tech Club -->
+          <div class="lg:col-span-5">
+            <div class="relative rounded-2xl overflow-hidden border-2 border-sky-400/30 shadow-2xl group">
+              <img 
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80" 
+                alt="Élèves passionnés d'informatique en plein atelier" 
+                class="w-full h-80 object-cover object-center group-hover:scale-105 transition duration-500"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/40 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <p class="text-xs uppercase font-mono tracking-widest text-sky-300">Labo Informatique #1</p>
+                <p class="text-sm font-semibold text-white">« Coder pour résoudre les défis locaux du Cameroun »</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Autres Clubs -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-microphone-lines"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 mb-2">Club Journal & Éloquence</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Formation à la prise de parole en public, joutes oratoires bilingues et rédaction de la gazette officielle de l'établissement.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 mb-2">Club Environnement & Vert</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Sensibilisation à l'écologie, reboisement du campus, gestion des déchets et éducation au développement durable.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-masks-theater"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 mb-2">Club Danse, Théâtre & Arts</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Célébration des richesses patrimoniales des Grassfields et des dix régions du Cameroun lors des journées culturelles.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-handshake-angle"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 mb-2">Club UNESCO & Citoyenneté</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Apprentissage des droits humains, de la tolérance interculturelle, du civisme et du vivre-ensemble harmonieux.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION GALERIE ================= -->
+  <section id="galerie" class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">Vie de Campus en Images</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-blue-950">Moments forts & Activités</h3>
+        <p class="mt-4 text-slate-600">Découvrez l'atmosphère dynamique et studieuse qui rythme nos journées.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Photo 1 -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-72">
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Salle de classe studieuse" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <span class="text-white font-medium text-sm">Cours magistral interactif</span>
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-72">
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" alt="Travaux pratiques en laboratoire de sciences" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <span class="text-white font-medium text-sm">Travaux Pratiques en Laboratoire</span>
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-72">
+          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="Séance d'apprentissage informatique" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <span class="text-white font-medium text-sm">Séance de programmation au Club Informatique</span>
+          </div>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-72">
+          <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80" alt="Sport et tournois interclasses" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <span class="text-white font-medium text-sm">Éducation Physique et Sportive (EPS)</span>
+          </div>
+        </div>
+
+        <!-- Photo 5 -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-72">
+          <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Célébration culturelle" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <span class="text-white font-medium text-sm">Journée Nationale du Bilinguisme</span>
+          </div>
+        </div>
+
+        <!-- Photo 6 -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-72">
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80" alt="Remise des prix d'excellence" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <span class="text-white font-medium text-sm">Cérémonie de remise des prix d'excellence</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION CONTACT ================= -->
+  <section id="contact" class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Informations & Coordonnées -->
+        <div class="lg:col-span-5 space-y-8">
+          <div>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">Restons Connectés</h2>
+            <h3 class="text-3xl font-extrabold text-blue-950">Prenez contact avec l'administration</h3>
+            <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+              Pour toute demande relative aux inscriptions, transferts, diplômes, ou partenariats éducatifs, nos bureaux vous accueillent du lundi au vendredi.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start space-x-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h5 class="text-sm font-bold text-slate-900">Adresse géographique</h5>
+                <p class="text-xs text-slate-600">Bafoussam, Département de la Mifi, Région de l'Ouest, Cameroun</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h5 class="text-sm font-bold text-slate-900">Téléphone</h5>
+                <p class="text-xs text-slate-600">+237 233 44 XX XX / +237 6XX XX XX XX</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <h5 class="text-sm font-bold text-slate-900">Courriel officiel</h5>
+                <p class="text-xs text-slate-600">contact@lyceebilinguebafoussam.cm</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div>
+                <h5 class="text-sm font-bold text-slate-900">Heures de service</h5>
+                <p class="text-xs text-slate-600">Lundi - Vendredi : 07h30 - 15h30</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulaire de Contact -->
+        <div class="lg:col-span-7">
+          <div class="bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-md">
+            <h4 class="text-xl font-bold text-blue-950 mb-2">Envoyez-nous un message</h4>
+            <p class="text-xs text-slate-500 mb-6">Nous vous répondrons dans les plus brefs délais.</p>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1.5" for="nom">Nom complet *</label>
+                  <input type="text" id="nom" required placeholder="ex: Kemgne Patrick" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1.5" for="tel">Téléphone / WhatsApp *</label>
+                  <input type="tel" id="tel" required placeholder="ex: 699 00 00 00" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1.5" for="objet">Sujet / Motif</label>
+                <select id="objet" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white">
+                  <option value="inscription">Renseignement Inscription / Dossier</option>
+                  <option value="club-info">Rejoindre le Club Informatique</option>
+                  <option value="filiere">Orientation dans les filières A, C, D</option>
+                  <option value="autre">Autre demande</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1.5" for="message">Message *</label>
+                <textarea id="message" rows="4" required placeholder="Écrivez votre message ici..." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-semibold text-sm transition shadow-lg shadow-blue-700/20 flex items-center justify-center gap-2">
+                <span>Envoyer le message</span>
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+              </button>
+
+              <div id="formFeedback" class="hidden p-3 rounded-xl text-center text-xs font-medium bg-emerald-100 text-emerald-800">
+                Merci ! Votre message a bien été pris en compte. L'administration vous contactera rapidement.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PIED DE PAGE (FOOTER) ================= -->
+  <footer class="bg-blue-950 text-slate-300 pt-16 pb-12 border-t border-blue-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-blue-900/60">
+        <!-- Logo & Devise -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-xl">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div>
+              <p class="text-white font-bold text-base leading-tight">Lycée Bilingue de Bafoussam</p>
+              <p class="text-xs text-blue-400">Government Bilingual High School (GBHS) Bafoussam</p>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+            Établissement public d'enseignement secondaire général. Travail - Discipline - Succès. Préparer chaque élève aux défis universitaires et professionnels.
+          </p>
+          <div class="flex space-x-3 pt-2">
+            <a href="#" class="w-8 h-8 rounded-full bg-blue-900/60 hover:bg-blue-600 flex items-center justify-center text-white transition text-xs"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-blue-900/60 hover:bg-blue-600 flex items-center justify-center text-white transition text-xs"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-blue-900/60 hover:bg-blue-600 flex items-center justify-center text-white transition text-xs"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Liens rapides -->
+        <div>
+          <h5 class="text-white font-bold text-sm mb-4">Plan du site</h5>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#accueil" class="hover:text-blue-400 transition">Accueil</a></li>
+            <li><a href="#apropos" class="hover:text-blue-400 transition">À Propos</a></li>
+            <li><a href="#filieres" class="hover:text-blue-400 transition">Filières A, C, D</a></li>
+            <li><a href="#club-informatique" class="hover:text-blue-400 transition font-semibold text-sky-400">Club Informatique</a></li>
+            <li><a href="#galerie" class="hover:text-blue-400 transition">Galerie Photos</a></li>
+          </ul>
+        </div>
+
+        <!-- Mentions légales & Cameroun -->
+        <div>
+          <h5 class="text-white font-bold text-sm mb-4">Devise Nationale</h5>
+          <div class="flex items-center gap-2 mb-2 text-xs font-semibold text-emerald-400">
+            <i class="fa-solid fa-flag text-xs"></i> Paix — Travail — Patrie
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed mb-3">
+            Délégation Régionale des Enseignements Secondaires de l'Ouest.
+          </p>
+          <span class="inline-block text-[10px] uppercase font-mono px-2 py-1 rounded bg-blue-900/80 text-blue-300">
+            République du Cameroun
+          </span>
+        </div>
+      </div>
+
+      <!-- Bas du footer -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>&copy; <span id="currentYear"></span> Lycée Bilingue de Bafoussam. Tous droits réservés.</p>
+        <p class="flex items-center gap-1">
+          Fait avec passion pour l'éducation au Cameroun <i class="fa-solid fa-heart text-red-500 text-xs"></i>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Année dynamique
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Gestion du menu mobile
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (mobileMenu.classList.contains('hidden')) {
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      } else {
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-xmark');
+      }
+    });
+
+    // Fermer le menu mobile lors d'un clic sur un lien
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      });
+    });
+
+    // Simulation d'envoi du formulaire
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const feedback = document.getElementById('formFeedback');
+      feedback.classList.remove('hidden');
+      document.getElementById('contactForm').reset();
+      setTimeout(() => {
+        feedback.classList.add('hidden');
+      }, 6000);
+    }
+  </script>
+</body>
+</html>
